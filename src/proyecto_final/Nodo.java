@@ -10,5 +10,42 @@ package proyecto_final;
  * @author Haru
  */
 public class Nodo {
+    private int dato;
+    private Nodo iz;
+    private Nodo Dr;
+
+    public Nodo() {
+    }
+
+    public Nodo(int dato, Nodo iz, Nodo Dr) {
+        this.dato = dato;
+        this.iz = iz;
+        this.Dr = Dr;
+    }
+
+    public int getDato() {
+        return dato;
+    }
+
+    public void setDato(int dato) {
+        this.dato = dato;
+    }
+
+    public Nodo getIz() {
+        return iz;
+    }
+
+    public void setIz(Nodo iz) {
+        this.iz = iz;
+    }
+
+    public Nodo getDr() {
+        return Dr;
+    }
+
+    public void setDr(Nodo Dr) {
+        this.Dr = Dr;
+    }
+    
     
 }
