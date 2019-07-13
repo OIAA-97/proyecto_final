@@ -9,8 +9,8 @@ package proyecto_final;
  *
  * @author Haru
  */
-public class NewClass {
+public class Arbol {
     
     
-String mensaje = ("Hola");
+
 }
