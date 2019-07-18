@@ -10,7 +10,7 @@ package proyecto_final;
  * @author Haru
  */
 public class Arbol {
-    
+    private Nodo raiz;
     
 
 }
