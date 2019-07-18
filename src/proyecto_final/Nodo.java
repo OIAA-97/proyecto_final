@@ -14,13 +14,12 @@ public class Nodo {
     private Nodo iz;
     private Nodo Dr;
 
-    public Nodo() {
-    }
+    
 
-    public Nodo(int dato, Nodo iz, Nodo Dr) {
-        this.dato = dato;
-        this.iz = iz;
-        this.Dr = Dr;
+    public Nodo() {
+        
+        
+        
     }
 
     public int getDato() {
