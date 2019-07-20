@@ -10,9 +10,9 @@ package proyecto_final;
  * @author Haru
  */
 public class Nodo {
-    private int dato;
-    private Nodo iz;
-    private Nodo Dr;
+    public int dato;
+    public Nodo iz;
+    public Nodo Dr;
 
     
 

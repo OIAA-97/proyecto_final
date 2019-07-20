@@ -31,9 +31,105 @@ public class Arbol {
         return nodo.getDr()==null&&nodo.getIz()==null;
     }
     
+    
+    
     public boolean esinterno(Nodo nodo)
     {
         return !eshoja(nodo);
     }
+    
+    
+    public void insertar(int dato)
+    {
+        Nodo nuevo;
+        nuevo= new Nodo();
+        
+        nuevo.dato=dato;
+        nuevo.iz=null;
+        nuevo.Dr=null;
+        if(raiz==null)
+        {
+            raiz=nuevo;
+        }
+        else
+        {
+            Nodo anterior =null,reco;
+            reco=raiz;
+            while(reco !=null)
+            {
+                anterior=reco;
+                if(dato<reco.dato)
+                {
+                    reco=reco.iz;
+                }
+                else
+                {
+                    reco=reco.Dr;
+                }
+                if(dato<anterior.dato)
+                {
+                    anterior.iz=nuevo;
+                }
+                else
+                {
+                    anterior.Dr=nuevo;
+                }
+                
+            }
+            
+            
+        }
+    }
 
+    private void imprimirPre (Nodo reco)
+      {
+          if (reco != null)
+          {
+              System.out.print(reco.dato + " ");
+              imprimirPre (reco.iz);
+              imprimirPre (reco.Dr);
+          }
+      }
+
+      public void imprimirPre ()
+      {
+          imprimirPre (raiz);
+          System.out.println();
+      }
+
+      private void imprimirEntre (Nodo reco)
+      {
+          if (reco != null)
+          {    
+              imprimirEntre (reco.iz);
+              System.out.print(reco.dato + " ");
+              imprimirEntre (reco.Dr);
+          }
+      }
+
+      public void imprimirEntre ()
+      {
+          imprimirEntre (raiz);
+          System.out.println();
+      }
+
+
+      private void imprimirPost (Nodo reco)
+      {
+          if (reco != null)
+          {
+              imprimirPost (reco.iz);
+              imprimirPost (reco.Dr);
+              System.out.print(reco.dato + " ");
+          }
+      }
+
+
+      public void imprimirPost ()
+      {
+          imprimirPost (raiz);
+          System.out.println();
+      }
+
+       
 }
