@@ -11,6 +11,29 @@ package proyecto_final;
  */
 public class Arbol {
     private Nodo raiz;
+
+    public Arbol() {
+    }
     
+    
+    public boolean isempty()
+    {
+        return raiz== null;
+    }
+    
+    public boolean esroot(Nodo nodo)
+    {
+        return raiz == nodo;
+    }
+    
+    public boolean eshoja(Nodo nodo )
+    {
+        return nodo.getDr()==null&&nodo.getIz()==null;
+    }
+    
+    public boolean esinterno(Nodo nodo)
+    {
+        return !eshoja(nodo);
+    }
 
 }

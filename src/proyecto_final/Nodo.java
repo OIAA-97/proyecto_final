@@ -19,7 +19,6 @@ public class Nodo {
     public Nodo() {
         
         
-        
     }
 
     public int getDato() {
