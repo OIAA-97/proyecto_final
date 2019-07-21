@@ -130,6 +130,37 @@ public class Arbol {
           imprimirPost (raiz);
           System.out.println();
       }
+      
+      
+      public void eliminarnodo()
+      {
+          
+      }
+      
+      
+      public Nodo buscarnodo(int d)
+      {
+          Nodo aux=raiz;
+          
+          while (aux.dato !=d)
+          {
+              if(d<aux.dato)
+              {
+                  aux=aux.iz;
+              }
+              else
+              {
+                  aux=aux.Dr;
+              }
+              if(aux==null)
+              {
+                  return null;
+              }
+             
+          }
+           return aux;
+      }
+      
 
        
 }

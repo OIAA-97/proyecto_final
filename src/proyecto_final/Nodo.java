@@ -44,6 +44,13 @@ public class Nodo {
     public void setDr(Nodo Dr) {
         this.Dr = Dr;
     }
+
+  
+    public String toString() {
+        return "este es el dato "+ dato;
+    }
+    
+    
     
     
 }
