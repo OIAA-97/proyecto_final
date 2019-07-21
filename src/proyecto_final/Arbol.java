@@ -132,9 +132,115 @@ public class Arbol {
       }
       
       
-      public void eliminarnodo()
+      public boolean  eliminarnodo( int d)
       {
-          
+          Nodo aux=raiz;
+          Nodo padre=raiz;
+          boolean hijoiz=true;
+          while(aux.dato !=d)
+          {
+              padre=aux;
+              
+              if(d<aux.dato)
+              {
+                  hijoiz=true;
+                  aux=aux.iz;
+              }
+              else
+              {
+                  hijoiz=false;
+                  aux=aux.Dr;
+              }
+              if(aux==null)
+              {
+                  return false;
+              }
+          }
+          if(aux.iz==null&&aux.Dr==null)
+          {
+           if(aux==raiz)
+           {
+               raiz=null;
+           }
+           else if(hijoiz)
+           {
+               padre.iz=null;
+           }
+           else
+           {
+            padre.Dr=null;   
+           }
+           
+          }
+          else if(aux.Dr==null) 
+           {
+            if(aux==raiz)
+           {
+             raiz=aux.iz;
+           }
+           else if(hijoiz)
+           {
+               padre.iz=aux.iz;
+           }
+           else
+           {
+            padre.Dr=aux.iz;   
+           }   
+           }
+           else if(aux.iz==null)
+           {
+               if(aux==raiz)
+              {
+               raiz=aux.Dr;
+               }
+               else if(hijoiz)
+               {
+               padre.iz=aux.Dr;
+               }
+               else
+               {
+                padre.Dr=aux.iz;   
+                }   
+           }
+          else
+           {
+               Nodo remplazo=obtener(aux);
+               if(aux==raiz)
+               {
+                   raiz=remplazo;
+               }else if(hijoiz)
+               {
+                   padre.iz=remplazo;
+               }
+               else
+               {
+                   padre.iz=remplazo;
+               }
+               remplazo.iz=aux.iz;
+               
+           }
+          return true; 
+      }
+      
+      
+      public Nodo obtener(Nodo nodoremplazo)
+      {
+         Nodo remplazarpadre= nodoremplazo;
+         Nodo remplazo=nodoremplazo;
+         Nodo aux=nodoremplazo.iz;
+         while(aux!=null)
+         {
+             remplazarpadre=remplazo;
+             remplazo=aux;
+             aux=aux.iz;
+         }
+         if(remplazarpadre!=nodoremplazo.iz)
+         {
+             remplazarpadre.iz= remplazo.iz;
+             remplazo.Dr=nodoremplazo.Dr;
+         }
+          System.out.println("el nodo remplazo es "+remplazo);
+        return remplazo;
       }
       
       
@@ -160,6 +266,9 @@ public class Arbol {
           }
            return aux;
       }
+      
+      
+      
       
 
        
