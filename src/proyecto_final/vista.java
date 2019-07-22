@@ -5,17 +5,25 @@
  */
 package proyecto_final;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author fenix
  */
 public class vista extends javax.swing.JFrame {
-Arbol arb= new Arbol();
+       Arbol arb= new Arbol();
+       Nodo n=new Nodo();
+       
+       DefaultTableModel tabla;
+       int index;
     /**
      * Creates new form vista
      */
     public vista() {
         initComponents();
+        tabla=new DefaultTableModel(new String[]{"Datos"},0);
     }
 
     /**
@@ -30,9 +38,9 @@ Arbol arb= new Arbol();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        dato = new javax.swing.JTextField();
         eliminar = new javax.swing.JButton();
         buscar = new javax.swing.JButton();
         insertar = new javax.swing.JButton();
@@ -43,7 +51,7 @@ Arbol arb= new Arbol();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -59,9 +67,9 @@ Arbol arb= new Arbol();
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setResizable(false);
         }
 
         jLabel1.setText("Dato");
@@ -97,7 +105,7 @@ Arbol arb= new Arbol();
                         .addGap(33, 33, 33)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(dato))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -114,7 +122,7 @@ Arbol arb= new Arbol();
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(insertar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -133,16 +141,20 @@ Arbol arb= new Arbol();
 
     
     public void llenartabla()
-    {
-        
+    {int a;
+        a=Integer.parseInt(dato.getText());
+        arb.insertar(a);
+        Object row[]=new Object[1];
+        index=0;
+        row[index++]=a;
+        tabla.addRow(row);
+        table.setModel(tabla);
     }
     
-    public void actualizatabla()
-    {
-        
-    }
+   
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
-        // TODO add your handling code here:
+        llenartabla();
+        
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
@@ -150,7 +162,19 @@ Arbol arb= new Arbol();
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        // TODO add your handling code here:
+      int dat;
+      dat=Integer.parseInt(dato.getText());
+      
+     if( arb.buscarnodo(dat)!= null)
+     {
+        JOptionPane.showMessageDialog(null,arb.buscarnodo(dat));
+     }
+     else
+     {
+     
+         JOptionPane.showMessageDialog(null,"no existe ese dato");
+     
+     }
     }//GEN-LAST:event_buscarActionPerformed
 
     /**
@@ -190,13 +214,13 @@ Arbol arb= new Arbol();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscar;
+    private javax.swing.JTextField dato;
     private javax.swing.JButton eliminar;
     private javax.swing.JButton insertar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

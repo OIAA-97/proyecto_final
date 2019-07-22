@@ -42,43 +42,32 @@ public class Arbol {
     public void insertar(int dato)
     {
         Nodo nuevo;
-        nuevo= new Nodo();
-        
-        nuevo.dato=dato;
-        nuevo.iz=null;
-        nuevo.Dr=null;
-        if(raiz==null)
-        {
-            raiz=nuevo;
-        }
-        else
-        {
-            Nodo anterior =null,reco;
-            reco=raiz;
-            while(reco !=null)
-            {
-                anterior=reco;
-                if(dato<reco.dato)
-                {
-                    reco=reco.iz;
-                }
-                else
-                {
-                    reco=reco.Dr;
-                }
-                if(dato<anterior.dato)
-                {
-                    anterior.iz=nuevo;
-                }
-                else
-                {
-                    anterior.Dr=nuevo;
-                }
-                
-            }
-            
-            
-        }
+          nuevo = new Nodo ();
+          nuevo.dato = dato;
+          
+          nuevo.iz = null;
+          nuevo.Dr = null;
+          
+          if (raiz == null)
+              raiz = nuevo;
+          else
+          {
+              Nodo anterior = null, reco;
+              reco = raiz;
+          
+              while (reco != null)
+              {
+                  anterior = reco;
+                  if (dato < reco.dato)
+                      reco = reco.iz;
+                  else
+                      reco = reco.Dr;
+              }
+              if (dato < anterior.dato)
+                  anterior.iz = nuevo;
+              else
+                  anterior.Dr = nuevo;
+          }
     }
 
     private void imprimirPre (Nodo reco)
@@ -269,7 +258,7 @@ public class Arbol {
       
       
       
+}
       
 
        
-}
