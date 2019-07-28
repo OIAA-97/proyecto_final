@@ -158,7 +158,10 @@ public class vista extends javax.swing.JFrame {
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        // TODO add your handling code here:
+        int a;
+        a=Integer.parseInt(dato.getText());
+        
+        arb.eliminarnodo(a);
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
