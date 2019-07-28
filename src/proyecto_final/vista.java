@@ -158,10 +158,16 @@ public class vista extends javax.swing.JFrame {
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        int a;
-        a=Integer.parseInt(dato.getText());
         
-        arb.eliminarnodo(a);
+        
+
+        
+          int []filasselec  = table.getSelectedRows();
+           for (int i=0; i<filasselec.length;i++)
+           {
+                    tabla.removeRow(i);
+                    arb.eliminarnodo(i);
+           }
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
