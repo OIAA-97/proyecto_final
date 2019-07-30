@@ -153,27 +153,35 @@ public class vista extends javax.swing.JFrame {
     
    
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
-        llenartabla();
-        
+        llenartabla(); 
     }//GEN-LAST:event_insertarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        
-        
-
-        
-          int []filasselec  = table.getSelectedRows();
-           for (int i=0; i<filasselec.length;i++)
-           {
+    int index;
+    String a;
+    int dat;
+    index=table.getSelectedRow();
+     a=(table.getValueAt(index, 0).toString());
+     dat=Integer.parseInt(a);
+     arb.eliminarnodo(dat);
+      
+     int []filasselec  = table.getSelectedRows();
+          
+    for (int i=0; i<filasselec.length;i++)
+    {
                     tabla.removeRow(i);
                     arb.eliminarnodo(i);
-           }
+      }
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-      int dat;
-      dat=Integer.parseInt(dato.getText());
-      
+    int index;
+    String a;
+    int dat;
+    index=table.getSelectedRow();
+     a=(table.getValueAt(index, 0).toString());
+    
+      dat=Integer.parseInt(a);
      if( arb.buscarnodo(dat)!= null)
      {
         JOptionPane.showMessageDialog(null,arb.buscarnodo(dat));
